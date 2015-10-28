@@ -1,0 +1,155 @@
+
+@import "../bower_components/normalize-css/normalize.css";
+@import "../bower_components/typeplate-starter-kit/css/typeplate.css";
+
+/**
+ * BOX-SIZING
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    transition-delay: 0s;
+    transition-duration: 0.25s;
+    transition-property: opacity, transform, color, background-color, border-color, z-index, background-image;
+    transition-timing-function: ease;
+}
+
+/**
+ * GRIDS
+ */
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    > * {
+        flex: 1;
+        flex-basis: 100%;
+    }
+}
+
+@define-mixin grid_r $col, $width {
+    @media only screen and (min-width: $(width)px) {
+        .grid-$(col)-$(width) {
+            & > * {
+                flex-basis: calc(100 / $col)%;
+            }
+            @mixin-content;
+        }
+    }
+}
+
+@define-mixin grid $col {
+    .grid-$(col) {
+        & > * {
+            flex-basis: calc(100 / $col)%;
+        }
+        @mixin-content;
+    }
+}
+
+@mixin grid 2 {}
+@mixin grid 4 {}
+@mixin grid 6 {}
+
+@mixin grid_r 2, 400 {}
+@mixin grid_r 2, 800 {}
+
+@mixin grid_r 4, 400 {}
+@mixin grid_r 4, 800 {}
+
+/**
+ * GENERAL
+ */
+
+img {
+    max-width: 100%;
+}
+
+
+#SignUpView{
+    width:100%;
+    height:710px;
+    background-image:url("./images/pale-pink.jpg");
+    background-repeat:repeat;
+
+}
+
+#SignUpBox{
+    margin:0 auto;
+    max-width:500px;
+        text-align: center;
+
+    input{
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display:block;
+        border: 1px solid #3d5c88;
+    }
+
+    button{
+        margin:0 auto;
+        margin-top: 20px;
+        display: block;
+
+    }
+
+    .radio{
+        display: inline-block;
+        margin: 10px;
+        
+   }
+
+   p{
+    display: inline-block;
+   }
+}
+
+
+#UpperPanel{
+    h2{
+        display:inline-block;
+font-family: 'Gloria Hallelujah', cursive;
+        color: #3d5c88;
+
+    }
+    img{
+        height: 150px;
+        margin:50px;
+        vertical-align: middle;
+        border-radius: 30%;
+
+
+    }
+}
+
+.UserStyle{
+    width:100%;
+    height:710px;
+    background-image:url("./images/pale-pink.jpg");
+    background-repeat:repeat;
+
+    #UpperPanel{
+        h2{
+        display:inline-block;
+        font-family: 'Gloria Hallelujah', cursive;
+        color: #3d5c88;
+        font-size: 30px;
+        margin-left: -30px;
+
+    }
+
+    img{
+        height: 80px;
+        vertical-align: middle;
+        border-radius: 30%;
+
+
+    }
+    }
+}
